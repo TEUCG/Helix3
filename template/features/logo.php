@@ -16,6 +16,7 @@ class Helix3FeatureLogo {
 	public function __construct( $helix3 ){
 		$this->helix3 = $helix3;
 		$this->position = $this->helix3->getParam('logo_position', 'logo');
+        $this->logotextalign = $this->helix3->getParam('logo_align');
 	}
 
 	public function renderFeature() {
@@ -74,6 +75,42 @@ class Helix3FeatureLogo {
 				}
 
 				$html .= '</h1>';
+			}
+			
+		} elseif( $this->helix3->getParam('logo_type') == 'both' ) {
+            
+            if( $this->helix3->getParam('logo_text') ) {
+				$logotext = $this->helix3->getParam('logo_text');
+			} else {
+				$logotext = $sitename;
+			}
+            
+			if( $this->helix3->getParam('logo_image') ) {
+				$html .= '<h1 class="logo-imagetext">';
+				$html .= '<img class="sp-default-logo'. $custom_logo_class .'" src="' . $this->helix3->getParam('logo_image') . '" alt="'. $sitename .'">';
+				if( $this->helix3->getParam('logo_image_2x') ) {
+					$html .= '<img class="sp-retina-logo'. $custom_logo_class .'" src="' . $this->helix3->getParam('logo_image_2x') . '" alt="'. $sitename .'" width="' . $width . '" height="' . $height . '">';
+				}
+
+				if( $this->helix3->getParam('mobile_logo') ) {
+					$html .= '<img class="sp-default-logo visible-xs" src="' . $this->helix3->getParam('mobile_logo') . '" alt="'. $sitename .'">';
+				}
+                $html .= '<span style="text-align:' . $this->logotextalign .';">'. $logotext .'</span>';
+				$html .= '</h1>';
+			} else {
+				$html .= '<h1 class="logo-imagetext">';
+				$html .= '<img class="sp-default-logo'. $custom_logo_class .'" src="' . $this->helix3->getTemplateUri() . '/images/presets/' . $this->helix3->Preset() . '/logo.png" alt="'. $sitename .'">';
+				$html .= '<img class="sp-retina-logo'. $custom_logo_class .'" src="' . $this->helix3->getTemplateUri() . '/images/presets/' . $this->helix3->Preset() . '/logo@2x.png" alt="'. $sitename .'" width="' . $width . '" height="' . $height . '">';
+
+				if( $this->helix3->getParam('mobile_logo') ) {
+					$html .= '<img class="sp-default-logo visible-xs" src="' . $this->helix3->getParam('mobile_logo') . '" alt="'. $sitename .'">';
+				}
+                $html .= '<span style="text-align:' . $this->logotextalign .';">'. $logotext .'</span>';
+				$html .= '</h1>';
+			}
+            
+            if( $this->helix3->getParam('logo_slogan') ) {
+				$html .= '<p class="logo-slogan">' . $this->helix3->getParam('logo_slogan') . '</p>';
 			}
 			
 		} else {

@@ -25,6 +25,7 @@
         <position>logo</position>
         <position>menu</position>
         <position>search</position>
+        <position>social</position>
         <position>slide</position>
         <position>user1</position>
         <position>user2</position>
@@ -101,17 +102,23 @@
                 <field name="logo_type" class="parent logotype" type="radio" default="image" label="HELIX_LOGO_TYPE" description="HELIX_LOGO_TYPE_DESC">
                     <option value="image">HELIX_LOGO_TYPE_IMAGE</option>
                     <option value="text">HELIX_LOGO_TYPE_TEXT</option>
+                    <option value="both">HELIX_LOGO_TYPE_IMAGETEXT</option>
                 </field>
-                <field name="logo_position" class="child logotype logotype_image logotype_text" type="modpos" default="logo" label="HELIX_MODULE_POSITIONS" description="HELIX_MODULE_POSITIONS_DESC" />
+                <field name="logo_position" class="child logotype logotype_image logotype_text logotype_both" type="modpos" default="logo" label="HELIX_MODULE_POSITIONS" description="HELIX_MODULE_POSITIONS_DESC" />
+                
+                <!-- logo text -->
+                <field name="logo_text" class="child logotype logotype_text logotype_both" type="text" label="HELIX_LOGO_TYPE_TEXT" description="HELIX_LOGO_TYPE_TEXT_DESC" />
+                <field name="logo_slogan" class="child logotype logotype_text logotype_both" type="text" label="HELIX_LOGO_SLOGAN" description="HELIX_LOGO_SLOGAN_DESC" />
+                <field name="logo_align" class="child logotype logotype_both" type="radio" default="center" label="HELIX_LOGO_TEXT_ALIGN" description="HELIX_LOGO_TEXT_ALIGN_DESC">
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                </field>
 
                 <!-- logo image -->
-                <field name="logo_image" class="child logotype logotype_image" type="media" preview="true" label="HELIX_LOGO_TYPE_IMAGE" description="HELIX_LOGO_TYPE_IMAGE_DESC" />
-                <field name="logo_image_2x" class="child logotype logotype_image" type="media" preview="true" label="HELIX_LOGO_TYPE_IMAGE_RETINA" description="HELIX_LOGO_TYPE_IMAGE_RETINA_DESC" />
-                <field name="mobile_logo" type="media" class="child logotype logotype_image" preview="true" label="HELIX_MOBILE_LOGO" description="HELIX_MOBILE_LOGO_DESC" />
-
-                <!-- logo text -->
-                <field name="logo_text" class="child logotype logotype_text" type="text" label="HELIX_LOGO_TYPE_TEXT" description="HELIX_LOGO_TYPE_TEXT_DESC" />
-                <field name="logo_slogan" class="child logotype logotype_text" type="text" label="HELIX_LOGO_SLOGAN" description="HELIX_LOGO_SLOGAN_DESC" />
+                <field name="logo_image" class="child logotype logotype_image logotype_both" type="media" preview="true" label="HELIX_LOGO_TYPE_IMAGE" description="HELIX_LOGO_TYPE_IMAGE_DESC" />
+                <field name="logo_image_2x" class="child logotype logotype_image logotype_both" type="media" preview="true" label="HELIX_LOGO_TYPE_IMAGE_RETINA" description="HELIX_LOGO_TYPE_IMAGE_RETINA_DESC" />
+                <field name="mobile_logo" type="media" class="child logotype logotype_image logotype_both" preview="true" label="HELIX_MOBILE_LOGO" description="HELIX_MOBILE_LOGO_DESC" />
 
                 <field type="group" title="HELIX_BODY_BACKGROUND_IMAGE_LABEL" />
                 <field name="body_bg_image" type="media" preview="true" label="HELIX_BODY_BACKGROUND_IMAGE" description="HELIX_BODY_BACKGROUND_IMAGE_DESC" />
@@ -146,6 +153,12 @@
 
                 <!-- Footer -->
                 <field type="group" title="HELIX_FOOTER" />
+                <field name="enabled_fullheightbody" type="radio" class="parent fullheightbody" default="1" label="HELIX_FULLHEIGHTBODY" description="HELIX_FULLHEIGHTBODY_DESC">
+                    <option value="1">HELIX_YES</option>
+                    <option value="0">HELIX_NO</option>
+                </field>
+                <field name="class_fullheightbody" type="text" default="#sp-main-body" label="HELIX_FULLHEIGHTBODY_CLASS" description="HELIX_FULLHEIGHTBODY_CLASS_DESC" class="child fullheightbody" />
+                
                 <field name="enabled_copyright" type="radio" class="parent copyright" default="1" label="HELIX_COPYRIGHT" description="HELIX_COPYRIGHT_DESC">
                     <option value="1">HELIX_SHOW</option>
                     <option value="0">HELIX_HIDE</option>
@@ -165,7 +178,8 @@
                 <field name="googleplus" type="text" label="HELIX_SOCIAL_ICON_GOOGLEPLUS" description="HELIX_SOCIAL_ICON_GOOGLEPLUS_DESC" class="child social_icons social_icons_1" />
                 <field name="pinterest" type="text" label="HELIX_SOCIAL_ICON_PINTEREST" description="HELIX_SOCIAL_ICON_PINTEREST_DESC" class="child social_icons social_icons_1" />
                 <field name="linkedin" type="text" label="HELIX_SOCIAL_ICON_LINKEDIN" description="HELIX_SOCIAL_ICON_LINKEDIN_DESC" class="child social_icons social_icons_1" />
-                <field name="dribbble" type="text" label="HELIX_SOCIAL_ICON_DRIBBBLE" description="HELIX_SOCIAL_ICON_DRIBBBLE_DESC" class="child social_icons social_icons_1" />
+                <field name="instagram" type="text" label="HELIX_SOCIAL_ICON_INSTAGRAM" description="HELIX_SOCIAL_ICON_INSTAGRAM_DESC" class="child social_icons social_icons_1" />
+				<field name="dribbble" type="text" label="HELIX_SOCIAL_ICON_DRIBBBLE" description="HELIX_SOCIAL_ICON_DRIBBBLE_DESC" class="child social_icons social_icons_1" />
                 <field name="behance" type="text" label="HELIX_SOCIAL_ICON_BEHANCE" description="HELIX_SOCIAL_ICON_BEHANCE_DESC" class="child social_icons social_icons_1" />
                 <field name="youtube" type="text" label="HELIX_SOCIAL_ICON_YOUTUBE" description="HELIX_SOCIAL_ICON_YOUTUBE_DESC" class="child social_icons social_icons_1" />
                 <field name="flickr" type="text" label="HELIX_SOCIAL_ICON_FLICKR" description="HELIX_SOCIAL_ICON_FLICKR_DESC" class="child social_icons social_icons_1" />

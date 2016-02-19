@@ -26,13 +26,14 @@ class Helix3FeatureSocial {
 		$pinterest 	= $this->helix3->getParam('pinterest');
 		$youtube 	= $this->helix3->getParam('youtube');
 		$linkedin 	= $this->helix3->getParam('linkedin');
+        $instagram 	= $this->helix3->getParam('instagram');
 		$dribbble 	= $this->helix3->getParam('dribbble');
 		$behance 	= $this->helix3->getParam('behance');
 		$skype 		= $this->helix3->getParam('skype');
 		$flickr 	= $this->helix3->getParam('flickr');
 		$vk 		= $this->helix3->getParam('vk');
 
-		if( $this->helix3->getParam('show_social_icons') && ( $facebook || $twitter || $googleplus || $pinterest || $youtube || $linkedin || $dribbble || $behance || $skype || $flickr || $vk ) ) {
+		if( $this->helix3->getParam('show_social_icons') && ( $facebook || $twitter || $googleplus || $pinterest || $youtube || $linkedin || $instagram || $dribbble || $behance || $skype || $flickr || $vk ) ) {
 			$html  = '<ul class="social-icons">';
 
 			if( $facebook ) {
@@ -52,6 +53,9 @@ class Helix3FeatureSocial {
 			}
 			if( $linkedin ) {
 				$html .= '<li><a target="_blank" href="'. $linkedin .'"><i class="fa fa-linkedin"></i></a></li>';
+			}
+            if( $instagram ) {
+				$html .= '<li><a target="_blank" href="'. $instagram .'"><i class="fa fa-instagram"></i></a></li>';
 			}
 			if( $dribbble ) {
 				$html .= '<li><a target="_blank" href="'. $dribbble .'"><i class="fa fa-dribbble"></i></a></li>';

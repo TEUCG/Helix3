@@ -153,11 +153,11 @@
 
                 <!-- Footer -->
                 <field type="group" title="HELIX_FOOTER" />
-                <field name="enabled_fullheightbody" type="radio" class="parent fullheightbody" default="1" label="HELIX_FULLHEIGHTBODY" description="HELIX_FULLHEIGHTBODY_DESC">
+                <field name="fullheightbody" type="radio" class="parent fullheightbody" default="1" label="HELIX_FULLHEIGHTBODY" description="HELIX_FULLHEIGHTBODY_DESC">
                     <option value="1">HELIX_YES</option>
                     <option value="0">HELIX_NO</option>
                 </field>
-                <field name="class_fullheightbody" type="text" default="#sp-main-body" label="HELIX_FULLHEIGHTBODY_CLASS" description="HELIX_FULLHEIGHTBODY_CLASS_DESC" class="child fullheightbody" />
+                <field name="class_fullheightbody" type="text" default="#sp-main-body" label="HELIX_FULLHEIGHTBODY_CLASS" description="HELIX_FULLHEIGHTBODY_CLASS_DESC" class="child fullheightbody fullheightbody_1" />
                 
                 <field name="enabled_copyright" type="radio" class="parent copyright" default="1" label="HELIX_COPYRIGHT" description="HELIX_COPYRIGHT_DESC">
                     <option value="1">HELIX_SHOW</option>

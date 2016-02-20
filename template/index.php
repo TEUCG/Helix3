@@ -30,14 +30,13 @@ if($this->helix3->getParam('comingsoon_mode')) header("Location: ".$this->baseUr
 
 //Class Classes
 $body_classes = '';
-$bodyinner_classes = '';
 
 if($this->helix3->getParam('sticky_header')) {
     $body_classes .= ' sticky-header';
 }
 
-if($this->helix3->getParam('enable_fullheightbody')) {
-    $bodyinner_classes .= ' fullheightbody';
+if($this->helix3->getParam('fullheightbody')) {
+    $body_classes .= ' fullheightbody';
 }
 
 $body_classes .= ($this->helix3->getParam('boxed_layout', 0)) ? ' layout-boxed' : ' layout-fluid';
@@ -190,20 +189,18 @@ if($custom_js = $this->helix3->getParam('custom_js')) {
     <jdoc:include type="modules" name="debug" />
 </body>
     <script>
-      
 jQuery(function() {
-     var c = jQuery('<?php echo $this->params->get('class_fullheightbody'); ?>');
+     var c = jQuery('.fullheightbody <?php echo $this->params->get('class_fullheightbody'); ?>');
     if (c.length !== 1) return;
     jQuery(window).bind('resize', function () {
     c.css('height', 'auto');
     c.css('min-height', 'inherit');
-        var r = jQuery(window).height() - jQuery('.fullheightbody').height();
+        var r = jQuery(window).height() - jQuery('.body-innerwrapper').height();
         var h = r + c.innerHeight() + 'px';
         if (r > 0)  c.css('min-height', h);
     });
 
     jQuery(window).trigger('resize');
-});
-        
+});    
     </script>
 </html>

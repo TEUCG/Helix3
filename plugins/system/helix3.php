@@ -174,12 +174,14 @@ class  plgSystemHelix3 extends JPlugin
 
     private function getTemplateName()
     {
+        $tid = JFactory::getApplication()->input->get ( 'id', '0', 'INT' );
+        
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->select($db->quoteName(array('template')));
         $query->from($db->quoteName('#__template_styles'));
         $query->where($db->quoteName('client_id') . ' = 0');
-        $query->where($db->quoteName('home') . ' = 1');
+        $query->where( $db->quoteName( 'id' ) . ' = ' . $db->quote( $tid ));
         $db->setQuery($query);
 
         return $db->loadObject()->template;
